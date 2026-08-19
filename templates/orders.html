@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1 class="page-title">
+    My Orders 📦
+</h1>
+
+{% if orders %}
+
+<table>
+
+    <tr>
+        <th>Order ID</th>
+        <th>Total Amount</th>
+        <th>Status</th>
+        <th>Order Date</th>
+    </tr>
+
+    {% for order in orders %}
+
+    <tr>
+
+        <td>
+            #{{ order.id }}
+        </td>
+
+        <td>
+            ₹{{ order.total_amount }}
+        </td>
+
+        <td>
+            {{ order.status }}
+        </td>
+
+        <td>
+            {{ order.order_date }}
+        </td>
+
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+{% else %}
+
+<div class="empty-cart">
+
+    <h2>
+        No orders found 📦
+    </h2>
+
+    <br>
+
+    <a href="{{ url_for('menu') }}"
+       class="btn">
+
+        Order Now
+
+    </a>
+
+</div>
+
+{% endif %}
+
+{% endblock %}

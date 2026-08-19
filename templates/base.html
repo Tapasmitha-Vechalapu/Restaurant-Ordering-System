@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Food Express</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+
+<body>
+
+    <!-- Navigation Bar -->
+
+    <nav>
+
+        <div class="logo">
+            🍔 Food Express
+        </div>
+
+
+        <div class="nav-links">
+
+            <!-- Home -->
+
+            <a href="{{ url_for('index') }}">
+                Home
+            </a>
+
+
+            <!-- Menu -->
+
+            <a href="{{ url_for('menu') }}">
+                Menu
+            </a>
+
+
+            <!-- Cart -->
+
+            <a href="{{ url_for('cart') }}">
+                Cart 🛒
+            </a>
+
+
+            <!-- Admin -->
+             <a href="{{ url_for('admin_login') }}">
+                Admin 👨‍💼
+            </a>
+
+
+            <!-- Check User Login -->
+
+            {% if session.get('user_id') %}
+
+
+                <!-- My Orders -->
+
+                <a href="{{ url_for('orders') }}">
+                    My Orders 📦
+                </a>
+
+
+                <!-- Logout -->
+
+                <a href="{{ url_for('logout') }}">
+                    Logout
+                </a>
+
+
+            {% else %}
+
+
+                <!-- Login -->
+
+                <a href="{{ url_for('login') }}">
+                    Login
+                </a>
+
+
+                <!-- Register -->
+
+                <a href="{{ url_for('register') }}">
+                    Register
+                </a>
+
+
+            {% endif %}
+
+
+        </div>
+
+    </nav>
+
+
+    <!-- Main Container -->
+
+    <div class="container">
+
+
+        <!-- Flash Messages -->
+
+        {% with messages = get_flashed_messages() %}
+
+            {% if messages %}
+
+                {% for message in messages %}
+
+                    <div class="flash-message">
+
+                        {{ message }}
+
+                    </div>
+
+                {% endfor %}
+
+            {% endif %}
+
+        {% endwith %}
+
+
+        <!-- Page Content -->
+
+        {% block content %}
+
+        {% endblock %}
+
+
+    </div>
+
+
+    <!-- JavaScript -->
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+
+</body>
+
+</html>

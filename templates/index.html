@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="hero">
+
+    <h1>Welcome to Food Express 🍕</h1>
+
+    <p>
+        Delicious food at your fingertips.
+        Choose your favorite food and place your order easily!
+    </p>
+
+    <a href="{{ url_for('menu') }}" class="btn">
+        View Menu 🍽️
+    </a>
+
+</div>
+
+
+<div class="features">
+
+    <div class="feature-card">
+
+        <h2>🍔 Delicious Food</h2>
+
+        <p>
+            Explore different delicious food items.
+        </p>
+
+    </div>
+
+
+    <div class="feature-card">
+
+        <h2>⚡ Fast Ordering</h2>
+
+        <p>
+            Select your favorite food quickly and easily.
+        </p>
+
+    </div>
+
+
+    <div class="feature-card">
+
+        <h2>📦 Easy Orders</h2>
+
+        <p>
+            Add items to your cart and place your order.
+        </p>
+
+    </div>
+
+</div>
+
+{% endblock %}
